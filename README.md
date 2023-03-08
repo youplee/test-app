@@ -2,8 +2,8 @@
 - `docker-compose build`
 - `docker-compose up -d`
 - to stop containers: `docker-compose down`
-- to execute shell inside the container: `docker-compose exec app bash` 
-  you can also use vscode plugin docker gui (right click and attach shell)
+- to execute shell inside the container: https://prnt.sc/iPLs-ngPfd45
+  use vscode plugin docker gui (right click and attach shell) https://prnt.sc/MMfxydYxO_Wp
 
 ## Install composer
  - go to src directory and run: `composer install`
