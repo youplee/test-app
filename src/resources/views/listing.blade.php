@@ -12,48 +12,57 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
     </head>
     <body>
-<p class="intro">Based from <b><a href="https://dribbble.com/shots/2241918-Movie-Ticket-Card-Sketch-freebie" target="_blank">Soumya's Movie Ticket Card</a></b><p>
-	
-<div class="container" id="listing_page">
-    <template v-for="(film, index) in films">
-        <div class="movie-card">
-            <div :class="'movie-header '+film.id " :style="{'background': 'url(' +urlImage+ film.poster_path + ')'}">
-                <div class="header-icon-container">
-                    <a :href="'/edit-film/' + film.id">
-                        <i class="material-icons header-icon"></i>
-                    </a>
-                </div>
-            </div><!--movie-header-->
-            <div class="movie-content">
-                <div class="movie-content-header">
-                    <a href="#">
-                        <h3 class="movie-title">@{{film.title}}</h3>
-                    </a>
-                </div>
-                <div class="movie-info">
-                    <div class="info-section">
-                        <label>Date</label>
-                        <span>@{{film.release_date}}</span>
-                    </div><!--date,time-->
-                    <div class="info-section">
-                        <label>Vote Average</label>
-                        <span>@{{film.vote_average}}</span>
-                    </div><!--screen-->
-                    <div class="info-section">
-                        <label>Vote Count</label>
-                        <span>@{{film.vote_count}}</span>
-                    </div><!--row-->
-                    <div class="info-section">
-                        <label>Type Media</label>
-                        <span>@{{film.media_type}}</span>
-                    </div><!--seat-->
-                </div>
-            </div><!--movie-content-->
-        </div><!--movie-card-->
-    </template>
+        <div id="listing_page">
+            <p class="intro">Based from <b><a href="https://dribbble.com/shots/2241918-Movie-Ticket-Card-Sketch-freebie" target="_blank">Soumya's Movie Ticket Card</a></b><p>
+            <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Search By title or Overview" aria-label="Search" aria-describedby="search-addon" v-model="search" />
+            <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+            </span>
+            </div>
+            <div class="container">
 
-	
-</div><!--container-->
+                <template v-for="(film, index) in filteredFilms">
+                    <div class="movie-card">
+                        <div :class="'movie-header '+film.id " :style="{'background': 'url(' +urlImage+ film.poster_path + ')'}">
+                            <div class="header-icon-container">
+                                <a :href="'/edit-film/' + film.id">
+                                    <i class="material-icons header-icon"></i>
+                                </a>
+                            </div>
+                        </div><!--movie-header-->
+                        <div class="movie-content">
+                            <div class="movie-content-header">
+                                <a href="#">
+                                    <h3 class="movie-title">@{{film.title}}</h3>
+                                </a>
+                            </div>
+                            <div class="movie-info">
+                                <div class="info-section">
+                                    <label>Date</label>
+                                    <span>@{{film.release_date}}</span>
+                                </div><!--date,time-->
+                                <div class="info-section">
+                                    <label>Vote Average</label>
+                                    <span>@{{film.vote_average}}</span>
+                                </div><!--screen-->
+                                <div class="info-section">
+                                    <label>Vote Count</label>
+                                    <span>@{{film.vote_count}}</span>
+                                </div><!--row-->
+                                <div class="info-section">
+                                    <label>Type Media</label>
+                                    <span>@{{film.media_type}}</span>
+                                </div><!--seat-->
+                            </div>
+                        </div><!--movie-content-->
+                    </div><!--movie-card-->
+                </template>
+
+                
+            </div><!--container-->
+        </div>
+
 <script type="text/javascript" src="https://d3cvj7tn6vbtyk.cloudfront.net/js/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
@@ -61,6 +70,7 @@
     data:{
         films : [],
         urlImage : '',
+        search : ''
 
  },
     methods: {
@@ -87,6 +97,18 @@
 					});
         }
     },
+    computed: {
+    		filteredFilms:function()
+    		{
+        		var self=this;
+        		return this.films.filter(function(film){
+        		if (film.title.toLowerCase().indexOf(self.search.toLowerCase()) >= 0 || film.overview.toLowerCase().indexOf(self.search.toLowerCase()) >= 0) {
+                            return true;
+                        }
+                });
+    		}
+
+	},
     mounted:function (){
 
         this.urlImage = "{{env("PATH_IMAGE_FILM")}}"
