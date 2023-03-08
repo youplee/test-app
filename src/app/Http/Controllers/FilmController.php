@@ -31,7 +31,8 @@ class FilmController extends Controller
      */
     public function index()
     {
-        return $this->_film->getFilms('movie', 'day');
+        $films = $this->_film->all();
+        return view('listing', compact('films'));
     }
 
     /**
