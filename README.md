@@ -20,6 +20,9 @@
  ## Laravel env Setup
 - edit `src/.env` and restart conatiners `docker-compose down && docker-compose up -d`
 
+## Generate backend api documentation with scribe
+ - to generate backend api docs with scribe please run: `php artisan scribe:generate`
+
 ## Run laravel
 - go to http://localhost:8881/login
 
