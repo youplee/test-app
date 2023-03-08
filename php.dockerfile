@@ -1,5 +1,6 @@
 FROM php:8.0-fpm-alpine
 WORKDIR /var/www/html
+RUN apk add --update linux-headers
 RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS} \ 
   && pecl install xdebug \
   && docker-php-ext-enable xdebug \
