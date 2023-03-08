@@ -77,9 +77,15 @@
                         if(response.data){
                             this.films = response.data
                             
+                        }else{
+                            localStorage.removeItem('tkn');
+                            window.location.replace("/login");
                         }
                     
-                    });
+                    }).catch(error => {
+                        localStorage.removeItem('tkn');
+                            window.location.replace("/login");
+					});
         }
     },
     mounted:function (){
