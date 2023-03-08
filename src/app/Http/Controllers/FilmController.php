@@ -22,7 +22,7 @@ class FilmController extends Controller
     )
     {
         $this->_film = $film;
-        $this->middleware('auth:api', ['except' => ['index','register','getFilms']]);
+        $this->middleware('auth:api', ['except' => []]);
     }
     /**
      * Display a listing of the resource.
@@ -31,8 +31,7 @@ class FilmController extends Controller
      */
     public function index()
     {
-        $films = $this->_film->all();
-        return view('listing', compact('films'));
+        return $films = $this->_film->all();
     }
 
     /**

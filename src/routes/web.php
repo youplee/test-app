@@ -17,7 +17,9 @@ use App\Http\Controllers\FilmController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::controller(FilmController::class)->group(function () {
-    Route::get('listing-film', 'index');
-
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::get('/listing-film', function () {
+    return view('listing');
 });
