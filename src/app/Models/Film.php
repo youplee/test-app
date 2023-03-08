@@ -27,10 +27,22 @@ class Film extends Model
         'release_date',
         'video',
         'vote_average',
-        'vote_count'
+        'vote_count',
+        'budget',
+        'homepage',
+        'revenue',
+        'status',
     ];
-    public function getFilms($type, $time){
-        $result = curl(
+    /**
+     * Create New
+     *
+     * @param string $type
+     * @param string $time
+     * @return $this
+     */
+    public function getFilms($type, $time)
+    {
+        return curl(
             sprintf(
                 '%s/%s/%s/%s?api_key=%s',
                 env('URL_API_FILM'),
@@ -43,6 +55,27 @@ class Film extends Model
              'GET'
         );
         return $result;
+    }
+    /**
+     * Create New
+     *
+     * @param string $type
+     * @param string $time
+     * @return $this
+     */
+    public function getInfoMovie($id)
+    {
+        return curl(
+            sprintf(
+                '%s/%s/%s?api_key=%s',
+                env('URL_API_FILM'),
+                'movie',
+                $id,
+                env('API_KEY_FILM')
+            ), ['Content-Type: application/json;  charset=utf-8','Accept: application/json'],
+             [],
+             'GET'
+        );
     }
     /**
      * Create New
