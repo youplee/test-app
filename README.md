@@ -13,8 +13,12 @@
  - `php artisan migrate`
  - to get data from api to DATABASE please run: `php artisan get:films`
 
+## Create User
+ - to create user please run this cmd : php artisan db:seed --class=UserSeeder
+ - User created is: login => admin@gmail.com password => 123456
+
 ## Run laravel
-- go to http://localhost:8881/
+- go to http://localhost:8881/login
 
 ## Run phpMyAdmin
 - go to http://localhost:8887/

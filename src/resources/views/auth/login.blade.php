@@ -10,8 +10,8 @@
 
     <!-- Login Form -->
     <form>
-      <input type="text" v-model="email" id="login" class="fadeIn second" name="login" placeholder="email">
-      <input type="password" v-model="password" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="text" v-model="email" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input type="text" v-model="password" id="password" class="fadeIn third" name="login" placeholder="password">
       <input type="button" @click="login" class="fadeIn fourth" value="Log In">
     </form>
 
