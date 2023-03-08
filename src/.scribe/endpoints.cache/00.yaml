@@ -12,11 +12,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'login user'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer $jwtToken'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -26,25 +27,28 @@ endpoints:
     bodyParameters:
       email:
         name: email
-        description: 'Must be a valid email address.'
+        description: ''
         required: true
-        example: tyrese91@example.net
-        type: string
+        example: admin@gmail.com
+        type: email
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'r$R"|W%W(oi*jcj#@-'
+        example: '123456'
         type: string
         custom: []
     cleanBodyParameters:
-      email: tyrese91@example.net
-      password: 'r$R"|W%W(oi*jcj#@-'
+      email: admin@gmail.com
+      password: '123456'
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZhckV648g56dvPfEb1aD3ae'
     controller: null
     method: null
     route: null
@@ -60,9 +64,10 @@ endpoints:
       subgroupDescription: ''
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer $jwtToken'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -74,31 +79,34 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: dqbqudbsyzdxvixdegpaxblx
+        example: astdciuydrgbrfcqjs
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: rleuschke@example.net
+        example: rahul47@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: E-d(\I92V
+        example: /B67^F
         type: string
         custom: []
     cleanBodyParameters:
-      name: dqbqudbsyzdxvixdegpaxblx
-      email: rleuschke@example.net
-      password: E-d(\I92V
+      name: astdciuydrgbrfcqjs
+      email: rahul47@example.com
+      password: /B67^F
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3bkVZgE6f1avh84Pdc56eaD'
     controller: null
     method: null
     route: null
@@ -114,9 +122,10 @@ endpoints:
       subgroupDescription: ''
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer $jwtToken'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -128,7 +137,10 @@ endpoints:
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer bvekg1h6cVEaa8DfZ34Pd56'
     controller: null
     method: null
     route: null
@@ -144,9 +156,10 @@ endpoints:
       subgroupDescription: ''
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer $jwtToken'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -158,7 +171,10 @@ endpoints:
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 41EcZa6Dek6dfVv38ahPbg5'
     controller: null
     method: null
     route: null
@@ -172,11 +188,12 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
+      title: 'Get list films'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer $jwtToken'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -188,16 +205,64 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+                [
+                    {
+                        "id": 76600,
+                        "backdrop_path": "/ovM06PdF3M8wvKb06i4sjW3xoww.jpg",
+                        "title": "Avatar: The Way of Water",
+                        "original_language": "en",
+                        "original_title": "Avatar: The Way of Water",
+                        "overview": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+                        "poster_path": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+                        "media_type": "movie",
+                        "popularity": 1136.205,
+                        "release_date": "2022-12-14",
+                        "vote_average": 7.7,
+                        "vote_count": 5649,
+                        "video": 0,
+                        "adult": 0,
+                        "created_at": "2023-03-08T13:04:48.000000Z",
+                        "updated_at": "2023-03-08T13:04:48.000000Z",
+                        "budget": "460000000",
+                        "homepage": "https://www.avatar.com/movies/avatar-the-way-of-water",
+                        "status": "Released",
+                        "revenue": "2281000000"
+                    },
+                    {
+                        "id": 296271,
+                        "backdrop_path": "/lInYIBIrx1DxX1Gngy0Ln3SDVYk.jpg",
+                        "title": "The Devil Conspiracy",
+                        "original_language": "en",
+                        "original_title": "The Devil Conspiracy",
+                        "overview": "The hottest biotech company in the world has discovered they can clone history’s most influential people from the dead. Now, they are auctioning clones of Michelangelo, Galileo, Vivaldi, and others for tens of millions of dollars to the world’s ultra-rich. But when they steal the Shroud of Turin and clone the DNA of Jesus Christ, all hell breaks loose.",
+                        "poster_path": "/1AWcMtUZjpkq4h52yDnNIp9FwEO.jpg",
+                        "media_type": "movie",
+                        "popularity": 81.554,
+                        "release_date": "2023-01-13",
+                        "vote_average": 6.2,
+                        "vote_count": 16,
+                        "video": 0,
+                        "adult": 0,
+                        "created_at": "2023-03-08T13:04:51.000000Z",
+                        "updated_at": "2023-03-08T13:04:51.000000Z",
+                        "budget": "0",
+                        "homepage": "",
+                        "status": "Released",
+                        "revenue": "0"
+                    }
+                ]
+             }
+        headers: []
+        description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1V5eb6DEgv6ad8cZ43Pfahk'
     controller: null
     method: null
     route: null
@@ -213,9 +278,10 @@ endpoints:
       subgroupDescription: ''
       title: ''
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer $jwtToken'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -236,7 +302,10 @@ endpoints:
         description: null
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ekDV3186g6bvhfEd5Za4cPa'
     controller: null
     method: null
     route: null

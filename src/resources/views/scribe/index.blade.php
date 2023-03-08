@@ -72,7 +72,7 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-login">
-                                <a href="#endpoints-POSTapi-login">POST api/login</a>
+                                <a href="#endpoints-POSTapi-login">login user</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-register">
                                 <a href="#endpoints-POSTapi-register">POST api/register</a>
@@ -84,7 +84,7 @@
                                 <a href="#endpoints-POSTapi-refresh">POST api/refresh</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-listing-film">
-                                <a href="#endpoints-GETapi-listing-film">Display a listing of the resource.</a>
+                                <a href="#endpoints-GETapi-listing-film">Get list films</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
                                 <a href="#endpoints-GETapi-user">GET api/user</a>
@@ -116,15 +116,18 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
         <h1 id="endpoints">Endpoints</h1>
 
     
 
-                                <h2 id="endpoints-POSTapi-login">POST api/login</h2>
+                                <h2 id="endpoints-POSTapi-login">login user</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -136,11 +139,12 @@ You can switch the language used with the tabs at the top right (or from the nav
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8881/api/login" \
+    --header "Authorization: Bearer $jwtToken" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"tyrese91@example.net\",
-    \"password\": \"r$R\\\"|W%W(oi*jcj#@-\"
+    \"email\": \"admin@gmail.com\",
+    \"password\": \"123456\"
 }"
 </code></pre></div>
 
@@ -151,13 +155,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 const headers = {
+    "Authorization": "Bearer $jwtToken",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "email": "tyrese91@example.net",
-    "password": "r$R\"|W%W(oi*jcj#@-"
+    "email": "admin@gmail.com",
+    "password": "123456"
 };
 
 fetch(url, {
@@ -182,7 +187,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-login" data-method="POST"
       data-path="api/login"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -210,6 +215,17 @@ fetch(url, {
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-login"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -234,14 +250,14 @@ fetch(url, {
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>email</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-login"
-               value="tyrese91@example.net"
+               value="admin@gmail.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>tyrese91@example.net</code></p>
+<p>Example: <code>admin@gmail.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -249,16 +265,17 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-login"
-               value="r$R"|W%W(oi*jcj#@-"
+               value="123456"
                data-component="body">
     <br>
-<p>Example: <code>r$R"|W%W(oi*jcj#@-</code></p>
+<p>Example: <code>123456</code></p>
         </div>
         </form>
 
                     <h2 id="endpoints-POSTapi-register">POST api/register</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -270,12 +287,13 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8881/api/register" \
+    --header "Authorization: Bearer $jwtToken" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"dqbqudbsyzdxvixdegpaxblx\",
-    \"email\": \"rleuschke@example.net\",
-    \"password\": \"E-d(\\\\I92V\"
+    \"name\": \"astdciuydrgbrfcqjs\",
+    \"email\": \"rahul47@example.com\",
+    \"password\": \"\\/B67^F\"
 }"
 </code></pre></div>
 
@@ -286,14 +304,15 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer $jwtToken",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "name": "dqbqudbsyzdxvixdegpaxblx",
-    "email": "rleuschke@example.net",
-    "password": "E-d(\\I92V"
+    "name": "astdciuydrgbrfcqjs",
+    "email": "rahul47@example.com",
+    "password": "\/B67^F"
 };
 
 fetch(url, {
@@ -318,7 +337,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-register" data-method="POST"
       data-path="api/register"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -345,6 +364,17 @@ fetch(url, {
             <b><code>api/register</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-register"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
@@ -374,10 +404,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-register"
-               value="dqbqudbsyzdxvixdegpaxblx"
+               value="astdciuydrgbrfcqjs"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>dqbqudbsyzdxvixdegpaxblx</code></p>
+<p>Must not be greater than 255 characters. Example: <code>astdciuydrgbrfcqjs</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -385,10 +415,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-register"
-               value="rleuschke@example.net"
+               value="rahul47@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>rleuschke@example.net</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>rahul47@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -396,16 +426,17 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-register"
-               value="E-d(\I92V"
+               value="/B67^F"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>E-d(\I92V</code></p>
+<p>Must be at least 6 characters. Example: <code>/B67^F</code></p>
         </div>
         </form>
 
                     <h2 id="endpoints-POSTapi-logout">POST api/logout</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -417,6 +448,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8881/api/logout" \
+    --header "Authorization: Bearer $jwtToken" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -427,6 +459,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer $jwtToken",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -452,7 +485,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-logout" data-method="POST"
       data-path="api/logout"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -480,6 +513,17 @@ fetch(url, {
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-logout"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -506,6 +550,7 @@ fetch(url, {
                     <h2 id="endpoints-POSTapi-refresh">POST api/refresh</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -517,6 +562,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8881/api/refresh" \
+    --header "Authorization: Bearer $jwtToken" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -527,6 +573,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer $jwtToken",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -552,7 +599,7 @@ fetch(url, {
 </span>
 <form id="form-POSTapi-refresh" data-method="POST"
       data-path="api/refresh"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -580,6 +627,17 @@ fetch(url, {
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-refresh"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -603,9 +661,10 @@ fetch(url, {
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-listing-film">Display a listing of the resource.</h2>
+                    <h2 id="endpoints-GETapi-listing-film">Get list films</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -617,6 +676,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8881/api/listing-film" \
+    --header "Authorization: Bearer $jwtToken" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -627,6 +687,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer $jwtToken",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -640,20 +701,58 @@ fetch(url, {
 
 <span id="example-responses-GETapi-listing-film">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
+      [
+          {
+              &quot;id&quot;: 76600,
+              &quot;backdrop_path&quot;: &quot;/ovM06PdF3M8wvKb06i4sjW3xoww.jpg&quot;,
+              &quot;title&quot;: &quot;Avatar: The Way of Water&quot;,
+              &quot;original_language&quot;: &quot;en&quot;,
+              &quot;original_title&quot;: &quot;Avatar: The Way of Water&quot;,
+              &quot;overview&quot;: &quot;Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.&quot;,
+              &quot;poster_path&quot;: &quot;/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg&quot;,
+              &quot;media_type&quot;: &quot;movie&quot;,
+              &quot;popularity&quot;: 1136.205,
+              &quot;release_date&quot;: &quot;2022-12-14&quot;,
+              &quot;vote_average&quot;: 7.7,
+              &quot;vote_count&quot;: 5649,
+              &quot;video&quot;: 0,
+              &quot;adult&quot;: 0,
+              &quot;created_at&quot;: &quot;2023-03-08T13:04:48.000000Z&quot;,
+              &quot;updated_at&quot;: &quot;2023-03-08T13:04:48.000000Z&quot;,
+              &quot;budget&quot;: &quot;460000000&quot;,
+              &quot;homepage&quot;: &quot;https://www.avatar.com/movies/avatar-the-way-of-water&quot;,
+              &quot;status&quot;: &quot;Released&quot;,
+              &quot;revenue&quot;: &quot;2281000000&quot;
+          },
+          {
+              &quot;id&quot;: 296271,
+              &quot;backdrop_path&quot;: &quot;/lInYIBIrx1DxX1Gngy0Ln3SDVYk.jpg&quot;,
+              &quot;title&quot;: &quot;The Devil Conspiracy&quot;,
+              &quot;original_language&quot;: &quot;en&quot;,
+              &quot;original_title&quot;: &quot;The Devil Conspiracy&quot;,
+              &quot;overview&quot;: &quot;The hottest biotech company in the world has discovered they can clone history&rsquo;s most influential people from the dead. Now, they are auctioning clones of Michelangelo, Galileo, Vivaldi, and others for tens of millions of dollars to the world&rsquo;s ultra-rich. But when they steal the Shroud of Turin and clone the DNA of Jesus Christ, all hell breaks loose.&quot;,
+              &quot;poster_path&quot;: &quot;/1AWcMtUZjpkq4h52yDnNIp9FwEO.jpg&quot;,
+              &quot;media_type&quot;: &quot;movie&quot;,
+              &quot;popularity&quot;: 81.554,
+              &quot;release_date&quot;: &quot;2023-01-13&quot;,
+              &quot;vote_average&quot;: 6.2,
+              &quot;vote_count&quot;: 16,
+              &quot;video&quot;: 0,
+              &quot;adult&quot;: 0,
+              &quot;created_at&quot;: &quot;2023-03-08T13:04:51.000000Z&quot;,
+              &quot;updated_at&quot;: &quot;2023-03-08T13:04:51.000000Z&quot;,
+              &quot;budget&quot;: &quot;0&quot;,
+              &quot;homepage&quot;: &quot;&quot;,
+              &quot;status&quot;: &quot;Released&quot;,
+              &quot;revenue&quot;: &quot;0&quot;
+          }
+      ]
+   }</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-listing-film" hidden>
@@ -668,7 +767,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-listing-film" data-method="GET"
       data-path="api/listing-film"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -696,6 +795,17 @@ access-control-allow-origin: *
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-listing-film"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -722,6 +832,7 @@ access-control-allow-origin: *
                     <h2 id="endpoints-GETapi-user">GET api/user</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -733,6 +844,7 @@ access-control-allow-origin: *
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8881/api/user" \
+    --header "Authorization: Bearer $jwtToken" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -743,6 +855,7 @@ access-control-allow-origin: *
 );
 
 const headers = {
+    "Authorization": "Bearer $jwtToken",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -784,7 +897,7 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-user" data-method="GET"
       data-path="api/user"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -811,6 +924,17 @@ access-control-allow-origin: *
             <b><code>api/user</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-user"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;

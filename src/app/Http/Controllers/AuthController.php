@@ -20,7 +20,14 @@ class AuthController extends Controller
     {
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
-
+    /**
+     * login user
+     * @param Request $request
+     * @throws \Exception
+     * @bodyParam email email required Example: admin@gmail.com
+     * @bodyParam password string required Example: 123456
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $request->validate([
