@@ -55,18 +55,38 @@
 
 	
 </div><!--container-->
-<script type="text/javascript" src="https://d3cvj7tn6vbtyk.cloudfront.net/js/vue.min.js"></script> 
-<script> 
+<script type="text/javascript" src="https://d3cvj7tn6vbtyk.cloudfront.net/js/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
  var vuePage = new Vue({ el:'#listing_page',
     data:{
         films : [],
         urlImage : '',
 
  },
- methods: { }, 
- mounted:function (){ 
-    this.urlImage = "{{env("PATH_IMAGE_FILM")}}"
-    this.films = {!! json_encode($films) !!}
+    methods: {
+        getFilms : function(){
+            axios.get('api/listing-film',{
+                headers: {
+                    Authorization: 'Bearer '+this.token
+                }
+            })
+                    .then(
+                    (response) => {
+                        console.log(response);
+                        if(response.data){
+                            this.films = response.data
+                            
+                        }
+                    
+                    });
+        }
+    },
+    mounted:function (){
+
+        this.urlImage = "{{env("PATH_IMAGE_FILM")}}"
+        this.token = localStorage.getItem('tkn');
+        this.getFilms()
     } });
  </script>
 </body></html>
