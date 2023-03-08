@@ -1,6 +1,6 @@
 <?php
 /**
- * V12Chat
+ * TEST
  *
  * @category    Helper
  * @package     TEST_APP

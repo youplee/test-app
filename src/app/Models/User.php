@@ -1,4 +1,12 @@
 <?php
+/**
+ * TEST
+ *
+ * @category    Helper
+ * @package     TEST_APP
+ * @author      Ayoub HAMOUDI <hamoudi.ayoub@gmail.com>
+ * @copyright   Ayoub
+ */
 namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

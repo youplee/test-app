@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * TEST
+ *
+ * @category    Helper
+ * @package     TEST_APP
+ * @author      Ayoub HAMOUDI <hamoudi.ayoub@gmail.com>
+ * @copyright   Ayoub
+ */
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
 
