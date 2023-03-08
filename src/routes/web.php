@@ -30,3 +30,6 @@ Route::get('/login', function () {
 Route::get('/listing-film', function () {
     return view('listing');
 });
+Route::get('/edit-film/{id}', function ($id) {
+    return view('edit', compact('id'));
+});

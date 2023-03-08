@@ -98,4 +98,35 @@ class Film extends Model
             return $e->getMessage();
         }
     }
+    /**
+     * Load by id
+     *
+     * @param string $id
+     * @return $this
+     */
+    public function loadById($id)
+    {
+        try {
+            return $this->where('id', $id)->first();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    /**
+     * update Film
+     *
+     * @param $id
+     * @param array $data
+     * @return $this
+     */
+    public function updateFilm($id, array $data)
+    {
+        try {
+            $film = $this->where('id', $id)->first();
+            $film->update($data);
+            return $film;
+        } catch (\Exception $e) {
+
+        }
+    }
 }

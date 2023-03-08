@@ -1,0 +1,81 @@
+
+body{
+    margin:100px;
+    padding:80px;
+    background-image: url("https://wallpaperaccess.com/full/4477488.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.H{
+    text-align: center;
+    font-size: xx-large;
+}
+
+.heading{
+
+    background-color: black;
+    color: burlywood;
+    text-align: left;
+    padding-inline-start: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    
+    border-width: 4px;
+    border-style: dotted;
+    border-color: white;
+    box-shadow: 1px 1px 10px 3px #ffffff;
+}
+
+.form{
+   
+    background-color: rgb(231, 199, 13);
+    padding: 35px;
+    border-width:5px;
+    border-top: 0px;
+    border-style: dotted;
+    border-color: white;
+    box-shadow: 1px 1px 10px 3px #ffffff;
+}
+
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-sizing:border-box;
+   
+}
+
+
+input[type="text"],
+input[type="email"],
+textarea{
+    width:100%;
+    padding: 12px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    margin:5px;
+}
+
+input[type="submit"]{
+    background-color: black;
+    color: bisque;
+    font-size: medium;
+    padding:8px 25px;
+    border-collapse: collapse;
+    border-radius: 5px;
+    cursor: grab;
+}
+
+input[type="submit"]:hover{
+    background-color: rgba(252, 214, 0, 0.514);
+    color:black;
+    font-weight:bolder;
+    border-style: dashed;
+}
+
+label{
+    font-size:larger;
+}
+
+

@@ -86,6 +86,12 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-listing-film">
                                 <a href="#endpoints-GETapi-listing-film">Get list films</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-detail-film--id-">
+                                <a href="#endpoints-GETapi-detail-film--id-">Get detail film</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-save-film--id-">
+                                <a href="#endpoints-POSTapi-save-film--id-">Update film</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
                                 <a href="#endpoints-GETapi-user">GET api/user</a>
                             </li>
@@ -291,9 +297,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"astdciuydrgbrfcqjs\",
-    \"email\": \"rahul47@example.com\",
-    \"password\": \"\\/B67^F\"
+    \"name\": \"hhlbhlhdpcd\",
+    \"email\": \"witting.graciela@example.net\",
+    \"password\": \"hMw&lt;~8B2+~wr\"
 }"
 </code></pre></div>
 
@@ -310,9 +316,9 @@ const headers = {
 };
 
 let body = {
-    "name": "astdciuydrgbrfcqjs",
-    "email": "rahul47@example.com",
-    "password": "\/B67^F"
+    "name": "hhlbhlhdpcd",
+    "email": "witting.graciela@example.net",
+    "password": "hMw&lt;~8B2+~wr"
 };
 
 fetch(url, {
@@ -404,10 +410,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-register"
-               value="astdciuydrgbrfcqjs"
+               value="hhlbhlhdpcd"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>astdciuydrgbrfcqjs</code></p>
+<p>Must not be greater than 255 characters. Example: <code>hhlbhlhdpcd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -415,10 +421,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-register"
-               value="rahul47@example.com"
+               value="witting.graciela@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>rahul47@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>witting.graciela@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -426,10 +432,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-register"
-               value="/B67^F"
+               value="hMw<~8B2+~wr"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>/B67^F</code></p>
+<p>Must be at least 6 characters. Example: <code>hMw&lt;~8B2+~wr</code></p>
         </div>
         </form>
 
@@ -828,6 +834,308 @@ fetch(url, {
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                    <h2 id="endpoints-GETapi-detail-film--id-">Get detail film</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-detail-film--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8881/api/detail-film/quaerat" \
+    --header "Authorization: Bearer $jwtToken" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8881/api/detail-film/quaerat"
+);
+
+const headers = {
+    "Authorization": "Bearer $jwtToken",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-detail-film--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-detail-film--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-detail-film--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-detail-film--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-detail-film--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-detail-film--id-"></code></pre>
+</span>
+<form id="form-GETapi-detail-film--id-" data-method="GET"
+      data-path="api/detail-film/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-detail-film--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-detail-film--id-"
+                    onclick="tryItOut('GETapi-detail-film--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-detail-film--id-"
+                    onclick="cancelTryOut('GETapi-detail-film--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-detail-film--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/detail-film/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-detail-film--id-"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-detail-film--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-detail-film--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="GETapi-detail-film--id-"
+               value="quaerat"
+               data-component="url">
+    <br>
+<p>The ID of the detail film. Example: <code>quaerat</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-save-film--id-">Update film</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-save-film--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8881/api/save-film/eius" \
+    --header "Authorization: Bearer $jwtToken" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"cum\",
+    \"overview\": \"qui\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8881/api/save-film/eius"
+);
+
+const headers = {
+    "Authorization": "Bearer $jwtToken",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "cum",
+    "overview": "qui"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-save-film--id-">
+</span>
+<span id="execution-results-POSTapi-save-film--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-save-film--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-save-film--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-save-film--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-save-film--id-"></code></pre>
+</span>
+<form id="form-POSTapi-save-film--id-" data-method="POST"
+      data-path="api/save-film/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-save-film--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-save-film--id-"
+                    onclick="tryItOut('POSTapi-save-film--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-save-film--id-"
+                    onclick="cancelTryOut('POSTapi-save-film--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-save-film--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/save-film/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-save-film--id-"
+               value="Bearer $jwtToken"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $jwtToken</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-save-film--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-save-film--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="POSTapi-save-film--id-"
+               value="eius"
+               data-component="url">
+    <br>
+<p>The ID of the save film. Example: <code>eius</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="title"                data-endpoint="POSTapi-save-film--id-"
+               value="cum"
+               data-component="body">
+    <br>
+<p>Example: <code>cum</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>overview</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="overview"                data-endpoint="POSTapi-save-film--id-"
+               value="qui"
+               data-component="body">
+    <br>
+<p>Example: <code>qui</code></p>
+        </div>
+        </form>
 
                     <h2 id="endpoints-GETapi-user">GET api/user</h2>
 

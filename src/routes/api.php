@@ -22,6 +22,8 @@ Route::controller(AuthController::class)->group(function () {
 });
 Route::controller(FilmController::class)->group(function () {
     Route::get('listing-film', 'index');
+    Route::get('detail-film/{id}', 'show');
+    Route::post('save-film/{id}', 'update');
 
 });
 

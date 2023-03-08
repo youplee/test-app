@@ -111,14 +111,14 @@ class FilmController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
+     * Get detail film
+     * @param Request $request
+     * @throws \Exception
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return $this->_film->loadById($id);
     }
 
     /**
@@ -133,15 +133,17 @@ class FilmController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * Update film
+     * @param Request $request
+     * @throws \Exception
+     * @bodyParam title string required
+     * @bodyParam overview string required
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        return $this->_film->updateFilm($id, $data);
     }
 
     /**

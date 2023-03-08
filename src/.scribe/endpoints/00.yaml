@@ -46,7 +46,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ZhckV648g56dvPfEb1aD3ae'
+      - 'Bearer vPka4Vd6a1b65echg8ZfED3'
     controller: null
     method: null
     route: null
@@ -77,34 +77,34 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: astdciuydrgbrfcqjs
+        example: hhlbhlhdpcd
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: rahul47@example.com
+        example: witting.graciela@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: /B67^F
+        example: hMw<~8B2+~wr
         type: string
         custom: []
     cleanBodyParameters:
-      name: astdciuydrgbrfcqjs
-      email: rahul47@example.com
-      password: /B67^F
+      name: hhlbhlhdpcd
+      email: witting.graciela@example.net
+      password: hMw<~8B2+~wr
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 3bkVZgE6f1avh84Pdc56eaD'
+      - 'Bearer 5aEaVDb6ked638Ph4Z1cfvg'
     controller: null
     method: null
     route: null
@@ -138,7 +138,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bvekg1h6cVEaa8DfZ34Pd56'
+      - 'Bearer 168Dhk5V4Edb6PgfZacae3v'
     controller: null
     method: null
     route: null
@@ -172,7 +172,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 41EcZa6Dek6dfVv38ahPbg5'
+      - 'Bearer D1ef5dac38hEZbv4a6V6gkP'
     controller: null
     method: null
     route: null
@@ -260,7 +260,116 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1V5eb6DEgv6ad8cZ43Pfahk'
+      - 'Bearer avahVb34EfPg5DZ6ekd18c6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/detail-film/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get detail film'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer $jwtToken'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the detail film.'
+        required: true
+        example: quaerat
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: quaerat
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer vaE4k6dV1c6hbDfaZegP583'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/save-film/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update film'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer $jwtToken'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the save film.'
+        required: true
+        example: eius
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: eius
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: true
+        example: cum
+        type: string
+        custom: []
+      overview:
+        name: overview
+        description: ''
+        required: true
+        example: qui
+        type: string
+        custom: []
+    cleanBodyParameters:
+      title: cum
+      overview: qui
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a466vgfEecV8bdP13aZDk5h'
     controller: null
     method: null
     route: null
@@ -303,7 +412,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ekDV3186g6bvhfEd5Za4cPa'
+      - 'Bearer Zv1hkgfa36DbeVc68a4PEd5'
     controller: null
     method: null
     route: null
